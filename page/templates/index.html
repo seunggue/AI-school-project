@@ -7,17 +7,20 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
 </head>
 <body style="background-color: black;">
-    <h1>영화추천서비스</h1>
-    <h1>영화하나 선택해 보세요</h1>
-    {% for post in posts %}
-        <div class="card d-inline-block mr-3" style="width: 18rem;">
-            <img src="{{post.movie_img}}" class="card-img-top" alt="...">
-            <div class="card-body">
-                <h5 class="card-title">{{post.movie_title}}</h5>
-                <p class="card-text"> <span class="btn btn-warning" style="font-weight: 600;">{{monster.like_users.count}}</span></p>
-                <a href="{% url 'page:result' post.movie_code %}" class="btn btn-primary">상세보기</a>
+    <div style="padding:30px 140px 30px 140px;">
+    <!-- <div style="margin:0px auto; width:1300px;"> -->
+        <h1 style="text-align:center; color:white; font-weight:bold; font-size:30px;">영화추천서비스</h1>
+        <h1 style="text-align:center; color: white;">영화하나 선택해 보세요</h1>
+
+        {% for post in posts %}
+            <div class="card d-inline-block mr-3" style="width: 18rem; margin-bottom: 20px;">
+                <img src="{{post.movie_img}}" class="card-img-top" alt="..." style="height:408px;">
+                <div class="card-body" style="text-align:center;">
+                    <h5 class="card-title" style="overflow:hidden; white-space:nowrap; text-overflow:ellipsis;">{{post.movie_title}}</h5>
+                    <a href="{% url 'page:result' post.movie_code %}" class="btn btn-primary">선택완료</a>
+                </div>
             </div>
-        </div>
-    {% endfor %}
+        {% endfor %}
+    </div>
 </body>
 </html>

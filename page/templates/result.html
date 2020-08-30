@@ -4,12 +4,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
 </head>
-<body>
-    <h1>추천영화</h1>
-    <h5>영화1</h5>
-    <h5>영화2</h5>
-    <h5>영화3</h5>
+<body style="background-color: black;">
+    <div style="padding:30px 145px 30px 145px;">
+        <h1 style="text-align:center; color:white; font-weight:bold; font-size:30px; margin-bottom: 20px;">영화추천 결과</h1>
 
+        {% for result in results %}
+            <div class="card d-inline-block mr-3" style="width: 18rem; margin-bottom: 20px;">
+                <img src="{{result.movie_img}}" class="card-img-top" alt="..." style="height:408px;">
+                <div class="card-body" style="text-align:center;">
+                    <h4 class="card-title" style="overflow:hidden; white-space:nowrap; text-overflow:ellipsis; font-weight:900;">{{result.movie_title}}</h5>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
 </body>
 </html>
